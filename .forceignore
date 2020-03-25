@@ -3,7 +3,10 @@
 #
 
 package.xml
-**/jsconfig.json
 
-# LWC Jest tests
+# LWC configuration files
+**/jsconfig.json
+**/.eslintrc.json
+
+# LWC Jest
 **/__tests__/**

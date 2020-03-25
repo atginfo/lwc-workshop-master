@@ -4,22 +4,33 @@
   "description": "The is the Dreamhouse application for use with the Lightning Web Components workshop.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "npm ": "npm run lint:lwc",
+    "lint:lwc": "eslint force-app/main/default/lwc",
+    "test": "npm run test:unit",
     "test:unit": "lwc-jest",
     "test:unit:debug": "lwc-jest --debug",
-    "test:unit:watch": "lwc-jest --watch"
+    "test:unit:watch": "lwc-jest --watch",
+    "test:unit:coverage": "sfdx-lwc-jest --coverage",
+    "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+    "prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gr8Gatsby/lwc-workshop-master.git"
+    "url": "https://github.com/atginfo/lwc-workshop-master"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Gr8Gatsby/lwc-workshop-master/issues"
+    "url": "https://github.com/atginfo/lwc-workshop-master/issues"
   },
-  "homepage": "https://github.com/Gr8Gatsby/lwc-workshop-master#readme",
+  "homepage": "https://github.com/atginfo/lwc-workshop-master#readme",
   "devDependencies": {
-    "@salesforce/lwc-jest": "^0.5.4"
+    "@salesforce/lwc-jest": "^0.5.4",
+    "@prettier/plugin-xml": "^0.7.0",
+    "@salesforce/eslint-config-lwc": "^0.4.0",
+    "@salesforce/sfdx-lwc-jest": "^0.7.0",
+    "eslint": "^5.16.0",
+    "prettier": "^1.19.1",
+    "prettier-plugin-apex": "^1.0.0"
   }
 }

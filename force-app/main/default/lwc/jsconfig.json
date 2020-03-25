@@ -2,6 +2,12 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "c/greeting": ["greeting/greeting.js"]
+    }
+  },
+  "include": ["**/*", "../../../../.sfdx/typings/lwc/**/*.d.ts"],
+  "typeAcquisition": {
+    "include": ["jest"]
   }
 }
