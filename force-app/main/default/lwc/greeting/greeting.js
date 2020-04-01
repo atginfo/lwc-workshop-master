@@ -1,4 +1,5 @@
 import { LightningElement, track, api } from "lwc";
+import { getRecord } from "lightning/uiRecordApi";
 
 const greetings = ["Hello", "Bonjour", "你好", "Hola", "Привет", "こんにちは", "Guten Tag", "ጤና ይስጥልኝ", "Ciao", "नमस्ते", "안녕하세요"];
 const SPEED_CLASS_MAP = {

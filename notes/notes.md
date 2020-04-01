@@ -1,3 +1,10 @@
+(Notes from convo with Anders)
+
+👷🚧 `!!!THIS IS VERY MUCH A WIP!!!!` 🚧👷
+
+- show examples of the types of things we can import instead of specifics
+-
+
 # Component Library
 
 https://<myDomain>.lightning.force.com/docs/component-library
@@ -164,3 +171,119 @@ import apexMethod from '@salesforce/apex/Namespace.Classname.apexMethod';
 @wire(apexMethod, { apexMethodParams })
 propertyOrFunction;
 ```
+
+### Available Imports
+
+lds.d.ts
+
+`lightning/uiListApi`
+
+- interface `ObjectId`
+- interface `FieldId`
+- `getListUi(`
+  - `objectApiName?: string | ObjectId,`
+  - `listViewApiName?: string | symbol,`
+  - `listViewId?: string,`
+  - `pageToken?: string,`
+  - `pageSize?: number,`
+  - `sortBy?: string | FieldId,`
+  - `fields?: Array<string | FieldId>,`
+  - `optionalFields?: Array<string | FieldId>,`
+  - `q?: string,`
+  - `): void;`
+
+`lightning/uiObjectInfoApi`
+
+- interface `ObjectId`
+- interface `FieldId`
+- `getObjectInfo(objectApiName: string | ObjectId): void;`
+- `getPicklistValues(fieldApiName: string | FieldId, recordTypeId: string): void;`
+- `getPicklistValuesByRecordType(objectApiName: string, recordTypeId: string): void;`
+
+`lightning/uiRecordApi`
+
+- interface `ObjectId`
+- interface `FieldId`
+- interface `FieldValueRepresentationValue`
+- interface `FieldValueRepresentation`
+- interface `RecordCollectionRepresentation`
+- interface `RecordTypeInfoRepresentation`
+- interface `RecordRepresentation`
+- interface `RecordInput`
+- interface `ClientOptions`
+- interface `ChildRelationshipRepresentation`
+- interface `ReferenceToInfoRepresentation`
+- interface `FilteredLookupInfoRepresentation`
+- interface `ExtraTypeInfo`
+- interface `RecordFieldDataType`
+- interface `FieldRepresentation`
+- interface `ThemeInfoRepresentation`
+- interface `ObjectInfoRepresentation`
+- `getRecord(`
+  - `recordId: string,`
+  - `fields?: Array<string | FieldId>,`
+  - `layoutTypes?: string[],`
+  - `modes?: string[],`
+  - `optionalFields?: Array<string | FieldId>,`
+  - `): void;`
+- `getRecordCreateDefaults(`
+  - `objectApiName: string | ObjectId,`
+  - `formFactor?: string,`
+  - `recordTypeId?: string,`
+  - `optionalFields?: Array<string | FieldId>,`
+  - `): void;`
+- `getRecordUi(`
+  - `recordIds: string | string[],`
+  - `layoutTypes: string | string[],`
+  - `modes: string | string[],`
+  - `optionalFields: Array<string | FieldId>,`
+  - `): void;`
+- `updateRecord(recordInput: RecordInput, clientOptions?: ClientOptions): Promise<RecordRepresentation>;`
+- `createRecord(recordInput: RecordInput): Promise<RecordRepresentation>;`
+- `deleteRecord(recordId: string): Promise<undefined>;`
+- `generateRecordInputForCreate(record: RecordRepresentation, objectInfo?: ObjectInfoRepresentation): RecordInput;`
+- `generateRecordInputForUpdate(record: RecordRepresentation, objectInfo?: ObjectInfoRepresentation): RecordInput;`
+- `createRecordInputFilteredByEditedFields(recordInput: RecordInput, originalRecord: RecordRepresentation): - RecordInput;`
+- `getFieldValue(record: RecordRepresentation, field: FieldId | string): FieldValueRepresentationValue | undefined;`
+- `getFieldDisplayValue(record: RecordRepresentation, field: FieldId | string): FieldValueRepresentationValue | - undefined;`
+
+engine.d.ts
+
+`lwc`
+
+- `ComposableEvent`
+- `HTMLElementTheGoodPart`
+- `ShadowRootTheGoodPart`
+- `LightningElement`
+- `api()`
+- `track()`
+- `wire()`
+
+apex.d.ts
+(in addition, a type definition is provided for each apex class with @AuraEnabled)
+`@salesforce/apex`
+
+- `FieldId`
+- `ApexServices`
+
+messageservice.d.ts
+`lightning/messageService`
+
+- `publish(messageContext: Object, messageChannel: Object, message?: Object, publisherOptions?: Object): void;`
+- `subscribe(messageContext: Object, messageChannel: Object, listener: Function, subscriberOptions: Object): Object;`
+- `unsubscribe(subscription: Object): void;`
+- `createMessageContext(): Object;`
+- `releaseMessageContext(messageContext: Object): void;`
+- const MessageContext
+- const APPLICATION_SCOPE
+
+schema.d.ts
+`@salesforce/schema`
+
+- interface `ObjectId`
+- interface `FieldId`
+
+user.d.ts
+`@salesforce/user/Id`
+
+- interface id
